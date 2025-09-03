@@ -50,7 +50,8 @@ nav a {
     transition: color 0.3s ease;
 }
 
-nav a:hover {
+nav a:hover,
+nav a.active {
     color: var(--terracotta);
 }
 
@@ -186,4 +187,106 @@ footer {
 body.loaded .loader-wrapper {
     opacity: 0;
     visibility: hidden;
+}
+
+/*
+--- About Page Styles ---
+*/
+
+.about-page {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.character-profile {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 4rem;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.profile-image {
+    flex-shrink: 0;
+}
+
+.profile-image img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.skills-section h2, .hobbies-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+/* Skill Vines */
+.skill {
+    margin-bottom: 1.5rem;
+}
+
+.skill p {
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    background: linear-gradient(90deg, var(--sage-green), #c1d4b8);
+    border-radius: 10px;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: grow-vine 1.5s 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes grow-vine {
+    to {
+        transform: scaleX(1);
+    }
+}
+
+/* Hobbies & Tools */
+.hobbies-section {
+    margin-top: 4rem;
+}
+
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.icon-item {
+    background-color: white;
+    padding: 1.5rem 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.icon-item i {
+    color: var(--terracotta);
+}
+
+.icon-item p {
+    font-weight: 700;
+    margin: 0;
 }
