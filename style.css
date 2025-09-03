@@ -1,0 +1,189 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+/* Define Color Palette and Base Styles */
+:root {
+    --cream: #FDFBF8;
+    --sage-green: #A3B18A;
+    --terracotta: #E87A5D;
+    --sky-blue: #BDE0FE;
+    --dark-text: #343A40;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--cream);
+    color: var(--dark-text);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Header and Navigation */
+header {
+    padding: 1rem 5%;
+    border-bottom: 1px solid #eee;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--dark-text);
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--terracotta);
+}
+
+/* Main Content & Hero Section */
+main {
+    padding: 2rem 5%;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    min-height: 70vh;
+}
+
+.hero-text {
+    max-width: 50%;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Call-to-Action Button */
+.cta-button {
+    background-color: var(--terracotta);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #d16b51; /* Slightly darker terracotta */
+    transform: scale(1.05);
+}
+
+/* Hero Image */
+.hero-image {
+    max-width: 45%;
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 5%;
+    margin-top: 4rem;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+}
+
+/* Loader Styles */
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--cream);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+
+.plant {
+    position: relative;
+    width: 50px;
+    height: 80px;
+}
+
+.stem {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 8px;
+    height: 0;
+    background-color: var(--sage-green);
+    transform: translateX(-50%);
+    animation: grow-stem 1.5s ease-out forwards;
+}
+
+.leaf {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    background-color: var(--sage-green);
+    border-radius: 0 50% 0 50%;
+    transform-origin: bottom left;
+    opacity: 0;
+}
+
+.leaf1 {
+    transform: translateX(-100%) rotate(45deg);
+    animation: grow-leaf 1s 1s ease-out forwards;
+}
+
+.leaf2 {
+    transform: translateX(0) rotate(-135deg);
+    animation: grow-leaf 1s 1.2s ease-out forwards; /* Stagger the second leaf */
+}
+
+@keyframes grow-stem {
+    from { height: 0; }
+    to { height: 80px; }
+}
+
+@keyframes grow-leaf {
+    from { opacity: 0; transform: scale(0); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Fade out loader when body has 'loaded' class */
+body.loaded .loader-wrapper {
+    opacity: 0;
+    visibility: hidden;
+}
