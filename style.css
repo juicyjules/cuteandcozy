@@ -9,7 +9,9 @@
     --sky-blue: #BDE0FE;
     --dark-text: #343A40;
 }
-
+* {
+    box-sizing: border-box;
+}
 body {
     font-family: 'Nunito', sans-serif;
     background-color: var(--cream);
