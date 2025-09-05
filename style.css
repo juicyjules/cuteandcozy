@@ -18,6 +18,9 @@ body {
     color: var(--dark-text);
     margin: 0;
     line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Header and Navigation */
@@ -60,6 +63,7 @@ nav a.active {
 /* Main Content & Hero Section */
 main {
     padding: 2rem 5%;
+    flex: 1;
 }
 
 .hero {
